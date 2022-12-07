@@ -28,7 +28,7 @@ public class MainClass extends JavaPlugin {
     private Location spawn;
 
     @Override
-    public void onEnable() {
+    public void onEnable() { //test
         instance = this;
         athenaManager = new AthenaManager();
         scoreboardData = new ScoreboardData();
