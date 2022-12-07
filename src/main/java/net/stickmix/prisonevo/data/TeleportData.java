@@ -15,6 +15,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
 import java.util.Map;
+
 public class TeleportData {
 
     private final static Map<Player, Location> teleporting = new HashMap<>();
@@ -64,7 +65,7 @@ public class TeleportData {
         new BukkitRunnable() {
 
             int timer = delay;
-            Location playerLocation = player.getLocation().clone();
+            final Location playerLocation = player.getLocation().clone();
 
             @Override
             public void run() {

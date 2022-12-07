@@ -15,6 +15,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 public class CombatData extends RListener {
 
     public final static Map<Player, Long> CACHE = new MapMaker().weakKeys().makeMap();

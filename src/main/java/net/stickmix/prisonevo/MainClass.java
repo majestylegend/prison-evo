@@ -8,7 +8,6 @@ import net.stickmix.prisonevo.athena.AthenaManager;
 import net.stickmix.prisonevo.command.CommandSpawn;
 import net.stickmix.prisonevo.data.ScoreboardData;
 import net.stickmix.prisonevo.listeners.GeneralListener;
-import net.villenium.os.command.*;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.plugin.PluginManager;
@@ -28,7 +27,7 @@ public class MainClass extends JavaPlugin {
     private Location spawn;
 
     @Override
-    public void onEnable() { //test
+    public void onEnable() {
         instance = this;
         athenaManager = new AthenaManager();
         scoreboardData = new ScoreboardData();
