@@ -11,7 +11,6 @@ import net.stickmix.prisonevo.items.EvoItems;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class AthenaManager {
@@ -32,7 +31,7 @@ public class AthenaManager {
     public AthenaManager() {
 
         gamePlayerObjectPool = Storages.PLAYERS.newObjectPool();
-        gamePlayerObjectPool.setDefaultObject(new GamePlayer(null, 0, 0, 0, 1, 0, new ArrayList<>(), null));
+        gamePlayerObjectPool.setDefaultObject(new GamePlayer(null, 0, 0, 0, 1, 0, new HashSet<>(), null));
 
         enderChestObjectPool = Storages.ENDERCHESTS.newObjectPool();
         enderChestObjectPool.setDefaultObject(new EnderChest(null, new ItemStack[27]));
