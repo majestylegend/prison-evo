@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.mainclass>net.stickmix.prisonevo.MainClass</project.mainclass>
+        <project.mainclass>net.stickmix.prisonevo.PrisonEvo</project.mainclass>
         <project.author>M4JESTY</project.author>
         <project.description>PrisonEvo plugin for StickMix</project.description>
     </properties>
@@ -55,12 +55,14 @@
         <dependency>
             <groupId>net.stickmix</groupId>
             <artifactId>game-api</artifactId>
-            <version>1.0.4</version>
+            <version>1.1.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.villenium</groupId>
             <artifactId>villenium-os</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
