@@ -9,7 +9,6 @@ import net.stickmix.prisonevo.data.GamePlayer;
 import net.stickmix.prisonevo.data.Perks;
 import net.stickmix.prisonevo.items.EvoItems;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.HashSet;
 
@@ -31,10 +30,10 @@ public class AthenaManager {
     public AthenaManager() {
 
         gamePlayerObjectPool = Storages.PLAYERS.newObjectPool();
-        gamePlayerObjectPool.setDefaultObject(new GamePlayer(null, 0, 0, 0, 1, 0, new HashSet<>(), null));
+        gamePlayerObjectPool.setDefaultObject(new GamePlayer(null, 0, 0, 0, 1, 0, null, null));
 
         enderChestObjectPool = Storages.ENDERCHESTS.newObjectPool();
-        enderChestObjectPool.setDefaultObject(new EnderChest(null, new ItemStack[27]));
+        enderChestObjectPool.setDefaultObject(new EnderChest(null, null));
 
         dailyChestObjectPool = Storages.DAILY.newObjectPool();
         dailyChestObjectPool.setDefaultObject(new DailyChest(null, 0, null));

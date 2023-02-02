@@ -2,6 +2,7 @@ package net.stickmix.prisonevo.data;
 
 import lombok.AllArgsConstructor;
 import net.stickmix.game.api.athena.annotation.Id;
+import net.stickmix.prisonevo.utils.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -11,16 +12,16 @@ public class EnderChest {
 
     @Id
     private final String name;
-    private ItemStack[] contents;
+    private String contents;
 
     public void fillEnderChest() {
         Inventory enderChest = Bukkit.getPlayerExact(name).getEnderChest();
+        ItemStack[] contents = ItemUtils.stringToArray(this.contents, new ItemStack[27]);
         enderChest.setContents(contents);
     }
 
     public void saveAfterClose() {
         Inventory enderChest = Bukkit.getPlayerExact(name).getEnderChest();
-        contents = enderChest.getContents();
-
+        this.contents = ItemUtils.arrayToString(enderChest.getContents());
     }
 }

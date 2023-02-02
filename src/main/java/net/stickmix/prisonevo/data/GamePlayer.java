@@ -13,6 +13,7 @@ import net.stickmix.prisonevo.PrisonEvo;
 import net.stickmix.prisonevo.chest.DailyChest;
 import net.stickmix.prisonevo.items.EvoItems;
 import net.stickmix.prisonevo.utils.Backpack;
+import net.stickmix.prisonevo.utils.ItemUtils;
 import net.stickmix.prisonevo.utils.Level;
 import net.stickmix.prisonevo.utils.MainScoreboard;
 import org.bukkit.Bukkit;
@@ -23,7 +24,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Getter
@@ -38,7 +40,7 @@ public class GamePlayer {
     private int blocksBroken;
     private int level;
     private int backpackLevel;
-    private Set<ItemStack> items;
+    private String items;
     private Inventory backpack;
 
     private final Map<String, Object> localData = new HashMap<>();
@@ -115,7 +117,7 @@ public class GamePlayer {
             p.setExp(Math.min(0.99F, exp));
             GameData.lastBlocksUpdate.remove(this);
             GameData.lastBlocksUpdate.put(this, System.currentTimeMillis());
-            items = new HashSet<>(Arrays.asList(p.getInventory().getStorageContents()));
+            saveItems();
         }
     }
 
@@ -140,7 +142,7 @@ public class GamePlayer {
     }
 
     public void saveItems() {
-        items = new HashSet<>(Arrays.asList(this.getHandle().getInventory().getStorageContents()));
+        this.items = ItemUtils.arrayToString(getHandle().getInventory().getStorageContents());
     }
 
     public void fulfillInventory() {
@@ -149,7 +151,8 @@ public class GamePlayer {
             return;
         }
         PlayerInventory inventory = handle.getInventory();
-        inventory.setStorageContents(items.toArray(new ItemStack[36]));
+        ItemStack[] contents = ItemUtils.stringToArray(this.items, new ItemStack[36]);
+        inventory.setContents(contents);
     }
 
     public void sendMessage(String message, Object... args) {

@@ -306,7 +306,6 @@ public class GeneralListener implements Listener {
     public void onInventoryClose(InventoryCloseEvent event) {
         Inventory inventory = event.getInventory();
         if (inventory.getType() == InventoryType.ENDER_CHEST) {
-            Bukkit.broadcastMessage("клосед");
             PrisonEvo.getInstance().getAthenaManager().get(event.getPlayer().getName()).getEnderChest().saveAfterClose();
         }
     }
