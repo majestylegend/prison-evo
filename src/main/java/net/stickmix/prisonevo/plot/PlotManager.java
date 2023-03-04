@@ -47,7 +47,7 @@ public class PlotManager {
                         return System.currentTimeMillis() - plot.getLastReset() > resetTime;
                     })
                     .forEach(Plot::reset);
-        }, 0, 20L * 5);
+        }, 0, 20L * 60);
     }
 
     public static Collection<Plot> getPlots() {
